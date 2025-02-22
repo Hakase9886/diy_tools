@@ -12,8 +12,8 @@ def extract_audio(video_path, audio_path="temp_audio.mp3"):
 def transcribe_audio(audio_path):
     """使用 OpenAI Whisper 轉錄音訊"""
     model = whisper.load_model("base")  # 可選 tiny, base, small, medium, large
-    result = model.transcribe(audio_path,language='ko')
-    return result["segments"]  # 取得逐段文字與時間戳
+    result = model.transcribe(audio_path,language='ko') # en：English（英文）zh：Chinese（中文）ko：Korean（韓文）ja：Japanese（日文）pt：Portuguese（葡萄牙文）
+    return result["segments"]  # 取得逐段文字與時間
 
 def write_srt(transcription, srt_path="output.srt"):
     """將 Whisper 的轉錄結果轉換為 SRT 格式"""
